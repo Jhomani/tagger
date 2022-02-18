@@ -1,0 +1,72 @@
+{
+  "root": true,
+  "extends": [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
+    },
+    "ecmaVersion": 12,
+    "sourceType": "module",
+    "project": [
+      "./tsconfig.json"
+    ]
+  },
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "rules": {
+    "@typescript-eslint/ban-types": 0,
+    "react/prop-types": 0,
+    "semi": 2,
+    "comma-dangle": 2,
+    "object-property-newline": [
+      2,
+      {
+        "allowAllPropertiesOnSameLine": false
+      }
+    ],
+    "object-curly-newline": [
+      2,
+      {
+        "ObjectExpression": {
+          "minProperties": 2,
+          "multiline": true
+        },
+        "ImportDeclaration": "always"
+      }
+    ],
+    "quotes": [
+      2,
+      "single",
+      {
+        "avoidEscape": true
+      }
+    ],
+    "react/jsx-first-prop-new-line": [
+      2,
+      "multiline"
+    ],
+    "react/jsx-max-props-per-line": [
+      2,
+      {
+        "maximum": 1,
+        "when": "multiline"
+      }
+    ],
+    "react/jsx-indent-props": [
+      2,
+      2
+    ]
+  },
+  "ignorePatterns": [
+    "src/**/*.test.ts",
+    "*/*.js",
+    "*.js",
+    "src/frontend/generated/*"
+  ]
+}

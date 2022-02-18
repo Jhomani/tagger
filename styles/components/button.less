@@ -1,0 +1,106 @@
+// common 
+.commonPress {
+  height: 0;
+  width: 0;
+  inset: 50% auto auto 50% !important;
+  transform: translate(-50%, -50%);
+  animation: pressState .4s ease;
+  border-radius: 50px;
+}
+
+// developing 
+[class^="btn-"] {
+  position: relative;
+  overflow: hidden;
+  border-radius: 16px;
+  border: 0;
+  cursor: pointer;
+  padding: 10px 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 20px;
+  user-select: none;
+  width: max-content;
+
+  &.flex-bottom {
+    align-items: flex-end;
+  }
+
+  &.round {
+    padding: 10px;
+    border-radius: 50%;
+
+    svg { margin: 0; }
+  }
+
+  svg { margin-right: 8px; }
+
+  span {
+    &:extend(.txt-button);
+    position: relative;
+    color: inherit;
+  }
+
+  &::before {
+    pointer-events: none;
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-color: transparent;
+  }
+
+  &.onpressed::before {
+    &:extend(.commonPress);
+    background-color: @dynamic-press !important;
+  }
+}
+
+.btn-primary, .btn-gradient {
+  color: rgba(#fff, 87);
+  fill: rgba(#fff, 87);
+
+  &:hover::before {
+    background-color: @light-hover;
+  }
+
+  &.onpressed::before {
+    &:extend(.commonPress);
+    background-color: @light-press !important;
+  }
+}
+
+.btn-primary {
+  background-color: @primary-variant;
+}
+
+.btn-transparent, .btn-secondary {
+  color: @text-emphasis;
+  fill: @text-emphasis;
+
+  &:hover::before {
+    background-color: @dynamic-hover;
+  }
+}
+
+.btn-transparent {
+  background-color: transparent;
+}
+
+.btn-secondary {
+  background-color: @secondary;
+
+}
+
+.btn-gradient {
+  background-image: linear-gradient(to left, 
+    @primary-variant 0% 20% , 
+    @primary 40% 50%, 
+    @primary-variant 70% 100%);
+  box-shadow: 
+    0px 4px 17px rgba(@primary-variant, 0.8), 
+    0px -4px 17px rgba(@primary-variant, 0.5);
+  background-size: 300% 100%;
+  background-position-x: 100%;
+  animation: gradientBackground 1.5s ease infinite;
+}

@@ -1,0 +1,50 @@
+.navbar-component {
+  height: 60px;
+  min-height: 60px;
+  background-color: @bg-navbar;
+  box-shadow: @elavation8;
+  position: sticky;
+  position: -webkit-sticky;
+  transition: background-color .2s ease;
+  padding: 0 15px;
+  top: 0;
+  z-index: 2;
+
+  .navbar-container {
+    height: 100%;
+    width: 100%;
+    max-width: 1279px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .navbar-left, .navbar-right {
+      display: flex;
+      align-items: center;
+
+      .nav-item {
+        display: flex;
+        padding: 10px;
+        align-items: center;
+        height: 60px;
+        max-height: 60px;
+        // overflow: hidden;
+        // width: 50px; 
+        // text-overflow: ellipsis; 
+        white-space: nowrap; 
+      }
+
+      a.nav-item {
+        &:extend(.sub-title1);
+        color: @primary-emphasis;
+        text-decoration: none;
+          transition: color .3s ease-in-out;
+
+        &:hover {
+          color: rgba(@primary, .95);
+        }
+      }
+    }
+  }
+}

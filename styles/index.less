@@ -1,0 +1,30 @@
+@import "./global/index.less";
+
+@import "./components/index.less";
+@import "./landing/index.less";
+
+html, *::before, *::after, * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  color: @text-emphasis;
+  font-family: 'NoirPro', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+button, li, a, .options {
+  outline: 0;
+}
+
+html {
+  background-color: @bg-color;
+  font-size: 16px;
+}
