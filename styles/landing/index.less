@@ -1,11 +1,48 @@
 @import './navbar.less';
 
-.landing {
+.tagger {
   height: calc(100vh - 80px);
   transition: background-color .2s ease-in-out;
+
+  .tagger-title {
+    transition: color .2s ease-in-out;
+    text-align: center;
+  }
+
+  .select-tag-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-data {
+    display: flex;
+    flex-direction: column;
+    row-gap: 15px;
+    align-items: center;
+    margin-top: 30px;
+
+    img {
+      max-width: 600px;
+      width: 100%;
+    }
+
+    div {
+      span[role="label"] {
+        color: #198565;
+        background-color: #d1e7e0;
+        padding: 3px 8px;
+        border-radius: 15px;
+      }
+      span[role="icon"] {
+        color: inherit;
+        cursor: pointer;
+
+        &:hover {
+          font-size: 16px;
+        }
+      }
+    }
+  }
 }
 
-.landing-title {
-  transition: color .2s ease-in-out;
-  text-align: center;
-}

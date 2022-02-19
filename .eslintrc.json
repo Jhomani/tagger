@@ -32,7 +32,10 @@
           "minProperties": 2,
           "multiline": true
         },
-        "ImportDeclaration": "always"
+        "ImportDeclaration": {
+          "minProperties": 3,
+          "multiline": true
+        }
       }
     ],
     "quotes": [

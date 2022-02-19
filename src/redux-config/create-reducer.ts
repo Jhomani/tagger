@@ -1,15 +1,13 @@
 import global from '@main/redux/reducer';
-// import commonData from "@redux/reducers/common";
-// import landingPage from "@redux/reducers/landingPage";
 import app from '@redux/reducers/app';
-import auth from '@redux/reducers/auth';
+import tags from '@redux/reducers/tags';
 import {
-combineReducers
+  combineReducers
 } from 'redux';
 
 export default function createReducer(asyncReducers?) {
   return combineReducers({
-    auth,
+    tags,
     app,
     global,
     ...asyncReducers

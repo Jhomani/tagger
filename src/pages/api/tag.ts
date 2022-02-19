@@ -1,7 +1,5 @@
 import tags from 'database/tags.json';
-import {
-  NextApiRequest, NextApiResponse
-} from 'next';
+import {NextApiRequest, NextApiResponse} from 'next';
 
 export default async function getAllTags(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET')

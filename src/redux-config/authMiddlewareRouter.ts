@@ -5,10 +5,10 @@ export const noRequireRequest = ['/registro', '/ingreso'];
 
 const AuthMiddlewareRouter = (ctx) => {
   const {pathname, reduxStore: store} = ctx;
-  const {tokenUser, dataUser: {type}} = store.getState().auth;
+  // const {tokenUser, dataUser: {type}} = store.getState().auth;
   // let urlByRole = role.getUrl(type);
 
-  console.log(pathname, type, tokenUser);
+  // console.log(pathname, type, tokenUser);
 
   // const auth = () => {
   //   if (!tokenUser) {

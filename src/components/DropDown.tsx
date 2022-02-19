@@ -1,6 +1,4 @@
-import {
-  ShortArrow
-} from '@components/icons';
+import {ShortArrow} from '@components/icons';
 import React, {
   useMemo, useRef, useState
 } from 'react';
@@ -12,14 +10,16 @@ interface OptionIn {
 
 interface SelectIn {
   options: OptionIn[];
-  initial: string | number;
+  initial?: string | number;
+  placeholder?: string;
+  size?: 'small' | 'medium' | 'large';
   onSelected(selected: string | number): void;
 }
 
 const optionsObj = {};
 
 export const Select = (props: SelectIn) => {
-  const {initial, options, onSelected} = props;
+  const {size = 'small', initial, placeholder, options, onSelected} = props;
 
   const [display, setDisplay] = useState(false);
   const [selected, setSelected] = useState(initial);
@@ -57,12 +57,12 @@ export const Select = (props: SelectIn) => {
 
 
   return <>
-    <div className="select-container" ref={container}>
+    <div className={`select-container ${size}`} ref={container}>
       <div className="selected" onClick={toggleOptions}>
         <input
           type="button"
           onBlur={() => display && closeOptions()}
-          value={optionsObj[selected]}
+          value={optionsObj[selected] ?? placeholder}
         />
         <ShortArrow color="var(--text-emphasis)" className="selectIcon" />
       </div>

@@ -1,18 +1,18 @@
+declare interface InTags {
+  tags: Array<{key: number; label: string}>;
+  banner: {
+    id?: number,
+    tags?: Array<{key: number; label: string}>;
+    createdAt?: number,
+    updatedAt?: number,
+    title?: string,
+    imageUrl?: string,
+    thumbnailUrl?: string,
+  }
+}
+
 declare interface MainStorage {
-  auth: {
-    userToken: string;
-    dateLogin: string;
-    userType: string;
-    loader: boolean;
-    dataUser: {
-      id: string;
-      points: number;
-      email: string;
-      name: string;
-      language: 'EN' | 'ES';
-      plan: 'BASIC' | 'MEDIUM' | 'PREMIUN';
-    }
-  };
+  tags: InTags;
   app: InAppState;
 }
 
@@ -22,6 +22,6 @@ declare module '*.png' {
 }
 
 declare interface PromiseAcc {
-  res: (value: unknown) => void;
-  rej: (value: unknown) => void;
+  resolve: (value: unknown) => void;
+  reject: (value: unknown) => void;
 }

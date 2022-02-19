@@ -30,7 +30,7 @@ export default async function request(url, options) {
 }
 
 export function postOptionsFormData(body = {}, method = 'POST') {
-  const {userToken} = getOrCreateStore().getState().auth;
+  const {userToken} = getOrCreateStore().getState()?.auth ?? {};
   return {
     method,
     headers: {Authorization: `Bearer ${userToken}`},
@@ -39,7 +39,7 @@ export function postOptionsFormData(body = {}, method = 'POST') {
 }
 
 export function getOptions(method = 'GET') {
-  const {userToken} = getOrCreateStore().getState().auth;
+  const {userToken} = getOrCreateStore().getState()?.auth ?? {};
   return {
     method,
     headers: {

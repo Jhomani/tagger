@@ -56,13 +56,13 @@ const Navbar = ({items}: NavbarIn) => {
       }
     }
 
-    globalEvents.addResizeHandle(handleResize);
+    // globalEvents.addResizeHandle(handleResize);
     globalEvents.addScrollHandle(handleScroll);
   }, []);
 
-  const handleResize = (size: number) => {
-    console.log(size);
-  };
+  // const handleResize = (size: number) => {
+  //   console.log(size);
+  // };
 
   const handleScroll = (scrolled: number) => {
     if (scrolled < 31)

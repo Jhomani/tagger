@@ -1,14 +1,14 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 //@ts-nocheck
 import {
-applyMiddleware, compose, createStore
+  applyMiddleware, compose, createStore
 } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import {
-routinePromiseWatcherSaga
+  routinePromiseWatcherSaga
 } from 'redux-saga-routines';
 import {
-DAEMON
+  DAEMON
 } from './constants';
 import createReducer from './create-reducer';
 import createSagas from './create-sagas';
@@ -25,7 +25,11 @@ export default function configureStore(initialState = {}) {
       ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({shouldHotReload: false})
       : compose;
 
-  const store = createStore(createReducer(), initialState, composeEnhancers(...enhancers));
+  const store = createStore(
+    createReducer(),
+    initialState,
+    composeEnhancers(...enhancers)
+  );
 
   store.runSaga = sagaMiddleware.run;
   store.injectedReducers = {};

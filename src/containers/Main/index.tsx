@@ -1,16 +1,9 @@
 import Layout from '@landing/Layout';
-import {
-  setDefaultValues
-} from '@redux/actions/app';
-import {
-  getNavigatorLocale, setDefaultColorMode
-} from '@utils/global';
-import React, {
-  memo, useEffect
-} from 'react';
-import {
-  useDispatch
-} from 'react-redux';
+import {setDefaultValues} from '@redux/actions/app';
+import {getTagsStart} from '@redux/actions/tags';
+import {getNavigatorLocale, setDefaultColorMode} from '@utils/global';
+import React, {memo, useEffect} from 'react';
+import {batch, useDispatch} from 'react-redux';
 
 // import moment from 'moment';
 
@@ -21,10 +14,13 @@ export const IndexPage = ({Component, pageProps}) => {
     const locale = getNavigatorLocale();
     const mode = setDefaultColorMode();
 
-    dispatch(setDefaultValues({
-      locale,
-      mode
-    }));
+    batch(() => {
+      dispatch(setDefaultValues({
+        locale,
+        mode
+      }));
+      dispatch(getTagsStart());
+    });
   }, []);
 
   return (

@@ -1,0 +1,8 @@
+export const GET_IMAGE_SINGLE_START = 'GET_IMAGE_SINGLE_START';
+export const GET_IMAGE_SINGLE_SAVE = 'GET_IMAGE_SINGLE_SAVE';
+
+export const GET_TAGS_START = 'GET_TAGS_START';
+export const GET_TAGS_SAVE = 'GET_TAGS_SAVE';
+
+export const DEL_IMAGE_TAG = 'DEL_IMAGE_TAG';
+export const ADD_IMAGE_TAG = 'ADD_IMAGE_TAG';

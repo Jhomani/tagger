@@ -1,7 +1,5 @@
-import images from 'database/banner.json';
-import {
-  NextApiRequest, NextApiResponse
-} from 'next';
+import images from 'database/banners.json';
+import {NextApiRequest, NextApiResponse} from 'next';
 
 export default async function getImage(req: NextApiRequest, res: NextApiResponse) {
   if (req.method !== 'GET')

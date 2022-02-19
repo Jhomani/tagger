@@ -1,15 +1,11 @@
-import {
-INIT_STATE as auth
-} from '@redux/reducers/auth';
-import cookies from 'next-cookies';
 import React from 'react';
 import middlewareRouterToken from '../redux-config/authMiddlewareRouter';
 import configureStore from '../redux-config/configure-store';
 import {
-getCookieName, getEnableAuthData, getHostname
+  getCookieName, getHostname
 } from './global';
 import {
-saveState
+  saveState
 } from './persist-store';
 
 const isServer = typeof window === 'undefined';
@@ -28,14 +24,9 @@ export function getOrCreateStore(initialState = {}) {
 
 export const defaultValueStorage = async (ctx, hostname) => {
   const cookieName = getCookieName(hostname, 'storage');
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const storage: any = cookies(ctx)[cookieName] ?? {};
+  console.log(cookieName);
 
-  return {
-    auth: {
-...auth, ...storage?.auth, loader: false
-}
-  };
+  return {};
 };
 
 const withReduxStore = (App) => {
@@ -47,9 +38,7 @@ const withReduxStore = (App) => {
       reduxStore.subscribe(
         () => {
           setTimeout(() => {
-            const states = reduxStore.getState();
-            // eslint-disable-next-line react/prop-types
-            saveState(props.hostname, {auth: getEnableAuthData(states.auth)});
+            saveState(props.hostname, {});
           }, 200);
         }
       );

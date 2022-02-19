@@ -1,11 +1,7 @@
-import {
-  getOrCreateStore
-} from '@utils/with-redux-store';
+import {getOrCreateStore} from '@utils/with-redux-store';
 import languages from 'locales';
 import React from 'react';
-import {
-  useSelector
-} from 'react-redux';
+import {useSelector} from 'react-redux';
 
 interface InLagCom {
   langKey: string

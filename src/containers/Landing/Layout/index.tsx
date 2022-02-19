@@ -1,19 +1,14 @@
+import {LightMode} from '@components/icons';
 import {
-  LightMode
-} from '@components/icons';
-import {
-  Button, getRawMessage, Navbar, Select
+  Button,
+  getRawMessage,
+  Navbar,
+  Select
 } from '@components/index';
-import {
-  switchLanguage
-} from '@redux/actions/app';
-import {
-  toggleColorMode
-} from '@utils/global';
+import {switchLanguage} from '@redux/actions/app';
+import {toggleColorMode} from '@utils/global';
 import React from 'react';
-import {
-  useDispatch, useSelector
-} from 'react-redux';
+import {useDispatch, useSelector} from 'react-redux';
 
 interface InLandingLayout {
   authenticated?: boolean;
