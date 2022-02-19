@@ -1,4 +1,8 @@
-import {Language, Select} from '@components/index';
+import {
+  getRawMessage,
+  Language,
+  Select
+} from '@components/index';
 import {addBannerTag} from '@redux/actions/tags';
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
@@ -58,19 +62,19 @@ const TaggerContainer = () => {
 
       <div className='select-tag-section'>
         <span>
-          Agrega una etiqueta a la imagen: &nbsp;
+          <Language langKey="addTags" />: &nbsp;
         </span>
         <Select
           options={availableForMural}
           size="medium"
-          placeholder='Etiquetas'
+          placeholder={getRawMessage('tags')}
           onSelected={addDelMuralTag}
         />
       </div>
       <div className='image-data'>
         <h4>{banner?.title}</h4>
         <p className='txt-body2 g-mt-1'>
-          Creado en: {createAt.toLocaleDateString('es-CL')}
+          <Language langKey="createdAt" />: {createAt.toLocaleDateString('es-CL')}
         </p>
         <img src={banner?.imageUrl} alt="banner" />
 
