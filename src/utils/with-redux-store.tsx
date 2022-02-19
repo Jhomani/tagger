@@ -1,12 +1,8 @@
 import React from 'react';
 import middlewareRouterToken from '../redux-config/authMiddlewareRouter';
 import configureStore from '../redux-config/configure-store';
-import {
-  getCookieName, getHostname
-} from './global';
-import {
-  saveState
-} from './persist-store';
+import {getCookieName, getHostname} from './global';
+import {saveState} from './persist-store';
 
 const isServer = typeof window === 'undefined';
 
@@ -54,6 +50,7 @@ const withReduxStore = (App) => {
     const reduxStore = getOrCreateStore(await defaultValueStorage(ctx, hostname));
 
     ctx.reduxStore = reduxStore;
+
     middlewareRouterToken(ctx);
 
     return {

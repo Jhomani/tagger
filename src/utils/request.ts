@@ -1,6 +1,4 @@
-import {
-  getOrCreateStore
-} from './with-redux-store';
+import {getOrCreateStore} from './with-redux-store';
 
 async function parseJSON(response) {
   return response.status === 204
@@ -105,7 +103,7 @@ export function patchOptions(body = {}, method = 'PATCH') {
     headers: {
       'Content-Type': 'application/json',
       Accept: 'application/json',
-      Authorization: `Bearer ${store.auth.userToken}`
+      Authorization: `Bearer ${store?.auth?.userToken}`
     },
     body: JSON.stringify(body)
   };
@@ -117,7 +115,7 @@ export function deleteOptions(body, method = 'DELETE') {
     method,
     headers: {
       Accept: 'application/json',
-      Authorization: `Bearer ${store.auth.userToken}`
+      Authorization: `Bearer ${store?.auth?.userToken}`
     },
     body: JSON.stringify(body)
   };

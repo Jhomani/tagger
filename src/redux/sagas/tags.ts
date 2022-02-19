@@ -1,9 +1,12 @@
-import request, {postOptions} from '@utils/request';
 import {
   all, call, put, takeLatest
 } from 'redux-saga/effects';
 import {TagsService} from 'src/services';
-import {getTagsSave, saveCurrentBanner} from '../actions/tags';
+import {
+  getCurrentBanner,
+  getTagsSave,
+  saveCurrentBanner
+} from '../actions/tags';
 import {
   ADD_IMAGE_TAG,
   DEL_IMAGE_TAG,
@@ -41,26 +44,19 @@ export function* getBannerSaga(arg) {
 }
 
 export function* addDelImageTag(arg) {
-  let url, options, msg;
-  const {res, rej, ...other} = arg.payload;
+  const service = new TagsService();
+  const {resolve, reject, del, ...others} = arg.payload;
 
   try {
+    if (del)
+      yield service.deleteBannerTag(others);
+    else
+      yield service.addBannerTag(others);
 
-    url = `${process.env.BACK_URL}/users/reset-password`;
-    options = yield postOptions(other);
-    const {token} = yield call(request, url, options);
-
-    msg = 'We send a code to your email';
-    yield call(res, {
-      msg,
-      current: 'code',
-      token
-    });
+    yield put(getCurrentBanner({reject, resolve}));
   } catch (err) {
-
-    if (err.message == '500') console.log('Server Error');
-    else msg = err.message;
-    yield call(rej, msg);
+    console.log(err.message);
+    yield call(reject, 'Ops, tenemos problems.');
   }
 }
 

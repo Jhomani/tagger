@@ -1,7 +1,20 @@
 [
   {
     "id": 6788,
-    "tags": [],
+    "tags": [
+      {
+        "id": 3,
+        "label": "Graffiti"
+      },
+      {
+        "id": 4,
+        "label": "Developer"
+      },
+      {
+        "id": 2,
+        "label": "Typography"
+      }
+    ],
     "createdAt": 1568044681586,
     "updatedAt": 1568044681586,
     "title": "mural4",

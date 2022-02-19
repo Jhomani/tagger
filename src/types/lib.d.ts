@@ -2,7 +2,7 @@ declare interface InTags {
   tags: Array<{key: number; label: string}>;
   banner: {
     id?: number,
-    tags?: Array<{key: number; label: string}>;
+    tags?: Array<{id: number; label: string}>;
     createdAt?: number,
     updatedAt?: number,
     title?: string,

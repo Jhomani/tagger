@@ -1,13 +1,9 @@
-import request, {
-  getOptions
-} from '@utils/request';
+import request, {getOptions} from '@utils/request';
 import {
   call,
   takeLatest
 } from 'redux-saga/effects';
-import {
-  INITIAL_REQUEST_MAIN_START
-} from './constants';
+import {INITIAL_REQUEST_MAIN_START} from './constants';
 
 export function* initialRequestMain() {
   let url, options;

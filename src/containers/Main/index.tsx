@@ -15,10 +15,7 @@ export const IndexPage = ({Component, pageProps}) => {
     const mode = setDefaultColorMode();
 
     batch(() => {
-      dispatch(setDefaultValues({
-        locale,
-        mode
-      }));
+      dispatch(setDefaultValues({locale, mode}));
       dispatch(getTagsStart());
     });
   }, []);

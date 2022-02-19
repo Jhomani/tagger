@@ -22,9 +22,9 @@ export default class MainService {
     return request(url, options);
   }
 
-  protected deleteById(endpoint: string, body = {}) {
+  protected deleteById(endpoint: string, id: string, body = {}) {
     const options = deleteOptions(body);
-    const url = `${process.env.BACK_URL}${endpoint}`;
+    const url = `${process.env.BACK_URL}${endpoint}/${id}`;
 
     return request(url, options);
   }

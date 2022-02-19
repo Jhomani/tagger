@@ -1,10 +1,5 @@
 import {
-InPayment
-} from 'src/services';
-import {
-  GET_REQUEST_PRODUCTS_START,
-  GET_REQUEST_PRODUCTS_SUCCESS,
-  INITIAL_REQUEST_MAIN_START,
+  GET_REQUEST_PRODUCTS_START, INITIAL_REQUEST_MAIN_START,
   INITIAL_REQUEST_MAIN_SUCCESS,
   PATCH_REQUEST_PAYMENT_START,
   POST_REQUEST_LINK_START,
@@ -32,11 +27,6 @@ export const claimLinkStart = (payload) => ({
 
 export const updatePaymentStatus = (payload) => ({
   type: PATCH_REQUEST_PAYMENT_START,
-  payload
-});
-
-export const getRequestProductsSuccess = (payload: InPayment[]) => ({
-  type: GET_REQUEST_PRODUCTS_SUCCESS,
   payload
 });
 

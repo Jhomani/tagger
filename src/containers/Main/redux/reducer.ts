@@ -1,13 +1,8 @@
-import {
-InPayment
-} from 'src/services';
-import {
-INITIAL_REQUEST_MAIN_SUCCESS
-} from './constants';
+import {INITIAL_REQUEST_MAIN_SUCCESS} from './constants';
 
 interface InMainResources {
   roleUser: string,
-  products: InPayment[]
+  products: object[]
 }
 
 const initialStateMain: InMainResources = {
@@ -22,9 +17,7 @@ export function mainReducer(state = initialStateMain, action) {
     case INITIAL_REQUEST_MAIN_SUCCESS: {
       const {role} = action.payload ?? {};
 
-      resp = {
-...state, roleUser: role
-}; break;
+      resp = {...state, roleUser: role}; break;
     }
   }
 

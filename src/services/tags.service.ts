@@ -28,4 +28,24 @@ export class TagsService extends MainService {
       throw new Error(err);
     }
   }
+
+  async addBannerTag({mid, tid}) {
+    try {
+      const resp = await this.updateById(`/mural/${mid}/tag`, tid);
+
+      return resp;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
+
+  async deleteBannerTag({mid, tid}) {
+    try {
+      const resp = await this.deleteById(`/mural/${mid}/tag`, tid);
+
+      return resp;
+    } catch (err) {
+      throw new Error(err);
+    }
+  }
 }
