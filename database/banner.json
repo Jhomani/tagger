@@ -1,0 +1,18 @@
+{
+  "tags": [
+    {
+      "id": 5,
+      "label": "Realism"
+    },
+    {
+      "id": 1,
+      "label": "Abstract"
+    }
+  ],
+  "createdAt": 1568044681586,
+  "updatedAt": 1568044681586,
+  "id": 6788,
+  "title": "mural4",
+  "imageUrl": "https://dummyimage.com/800x400/3178c6/fff&text=hi-guys",
+  "thumbnailUrl": "https://dummyimage.com/800x400/3178c6/fff&text=hi-guys"
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const DarkMode = ({ size = '1.5rem', color = '#212121' }) => (
+export const DarkMode = ({size = '1.5rem', color = ''}) => (
   <svg
     width={size}
     height={size}
@@ -10,7 +10,7 @@ export const DarkMode = ({ size = '1.5rem', color = '#212121' }) => (
   </svg>
 );
 
-export const LightMode = ({ size = '1.5rem', color = '#fff' }) => (
+export const LightMode = ({size = '1.5rem', color = ''}) => (
   <svg
     width={size}
     height={size}

@@ -1,14 +1,14 @@
 import {
-Whatsapp
+  LightMode
 } from '@components/icons';
 import {
-Button, Navbar
+  Button, Navbar
 } from '@components/index';
 import {
-Language
+  Language
 } from '@components/Language';
 import {
-toggleColorMode
+  toggleColorMode
 } from '@utils/global';
 import React from 'react';
 
@@ -23,23 +23,17 @@ const items = [
   //   label: <Language langKey='navPrice' />
   // },
   {
-    path: '/about-us',
-    label: <Language langKey='navAboutus' />
+    path: '/handle-tags',
+    label: <Language langKey='handleTags' />
   },
   {
-    path: '/prices',
-    label: <Language langKey='navPortfolio' />
-  },
-  {
-    path: '/services',
-    label: <Language langKey='navServices' />
-  },
-  {
-    label: <Button
-      onClick={toggleColorMode.bind({})}
-      type="gradient"
-      icon={<Whatsapp size="16" />}
-      content="whatsapp" />
+    label:
+      <Button
+        type="secondary"
+        onClick={toggleColorMode}
+        icon={<LightMode size="20" />}
+        shape="round"
+      />
   }
 ];
 

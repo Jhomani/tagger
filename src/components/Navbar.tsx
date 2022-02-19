@@ -1,10 +1,4 @@
-import {
-  LightMode, Menu
-} from '@components/icons';
 import logo from '@components/images/logo.png';
-import {
-  Button
-} from '@components/index';
 import {
   switchLanguage
 } from '@redux/actions/app';
@@ -38,12 +32,12 @@ const initialState = {
 };
 
 const Navbar = ({items}: NavbarIn) => {
-  const [state, setState, getRight] = useStatus(initialState);
+  const [state, setState] = useStatus(initialState);
   const dispatch = useDispatch();
   const navBar = useRef(null);
   const router = useRouter();
 
-  const {bgNavbar, screenWidth} = state;
+  const {bgNavbar} = state;
 
   useEffect(() => {
     if (window && window.scrollY > 31)
@@ -104,7 +98,7 @@ const Navbar = ({items}: NavbarIn) => {
           </li>
         </ul>
         <ul className="navbar-right">
-          {/* {items.map((item, i) => item.path
+          {items.map((item, i) => item.path
             ? <li key={i}>
               <Link href={item.path}>
                 <a href={item.path} className="nav-item">
@@ -115,36 +109,7 @@ const Navbar = ({items}: NavbarIn) => {
             : <li key={i} className="nav-item">
               {item.label}
             </li>)
-          } */}
-
-          {/* more than 759px */}
-          {/* <li>
-            <Link href="/services">
-              <a href="/services" className="nav-item"> Services </a>
-            </Link>
-          </li>
-          <li>
-            <Link href="/">
-              <a href="/" className="nav-item"> Home </a>
-            </Link>
-          </li> */}
-          {/* loss than 759px */}
-          <li className="nav-item">
-            <Button
-              type="secondary"
-              onClick={() => {console.log('prim');}}
-              icon={<LightMode size="20" />}
-              shape="round"
-            />
-          </li>
-          <li className="nav-item">
-            <Button
-              type="secondary"
-              onClick={() => {console.log('prim');}}
-              icon={<Menu size="20" />}
-              shape="round"
-            />
-          </li>
+          }
         </ul>
       </div>
     </nav>

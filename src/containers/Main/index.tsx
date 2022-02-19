@@ -1,15 +1,15 @@
 import Layout from '@landing/Layout';
 import {
-setDefaultValues
+  setDefaultValues
 } from '@redux/actions/app';
 import {
-getNavigatorLocale, setDefaultColorMode
+  getNavigatorLocale, setDefaultColorMode
 } from '@utils/global';
 import React, {
-memo, useEffect
+  memo, useEffect
 } from 'react';
 import {
-useDispatch
+  useDispatch
 } from 'react-redux';
 
 // import moment from 'moment';
@@ -21,13 +21,12 @@ export const IndexPage = ({Component, pageProps}) => {
     const locale = getNavigatorLocale();
     const mode = setDefaultColorMode();
 
-    // moment.locale(locale.toUpperCase());
     dispatch(setDefaultValues({
-locale, mode
-}));
+      locale,
+      mode
+    }));
   }, []);
 
-  console.log('int maing component yeah....');
   return (
     <Layout>
       <Component {...pageProps} />

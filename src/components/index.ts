@@ -1,6 +1,7 @@
 import Navbar from './Navbar';
 
-export { Navbar };
-export * from './Select/main';
-export * from './Language';
 export * from './Button';
+export * from './DropDown';
+export * from './Language';
+export {Navbar};
+

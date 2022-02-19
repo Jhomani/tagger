@@ -1,7 +1,3 @@
-import {
-  InAppState
-} from '@redux/reducers/app';
-
 declare interface MainStorage {
   auth: {
     userToken: string;

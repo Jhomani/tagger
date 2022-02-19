@@ -1,6 +1,3 @@
-import request, {
-postOptions, postOptionsFormData
-} from './request';
 // import { getOrCreateStore } from "./with-redux-store";
 // import { RESET_AUTH_TO_INITIAL } from "@constants/ActionTypes";
 // import Router from "next/router";
@@ -28,38 +25,10 @@ export const getFilter = (payload, filterAffiliates) => {
   }
 };
 
-/**
- *
- * @param {*} data
- */
-
 export const buildFormData = (data) => {
   const formData = new FormData();
   formData.append('file', data);
   return formData;
-};
-
-export const uploadFileStorages = async (containerName, file, owner) => {
-  try {
-    let url, option;
-    url = `${process.env.BACKEND_URL}/containers/${containerName}/upload`;
-    const formData = buildFormData(file);
-    option = postOptionsFormData(formData);
-    const requestUpload = await request(url, option);
-    const {size, name, originName, mediaLink, contentType} = requestUpload;
-
-    url = `${process.env.BACKEND_URL}/file-storages`;
-    option = postOptions({
-      size,
-      originFile: containerName,
-      format: contentType,
-      linkFile: mediaLink,
-      ...owner
-    });
-    return await request(url, option);
-  } catch {
-    throw 'No se pudo registrar la imagen';
-  }
 };
 
 export const useIndex = ({data, index}) =>
@@ -76,8 +45,11 @@ export const getFileStorages = (object) => {
   if (object?.fileStorages && object.fileStorages.length > 0) {
     const {link, id, name} = object.fileStorages[0];
     fileStorages = {
-url: link, uid: id, name: name, status: 'done'
-};
+      url: link,
+      uid: id,
+      name: name,
+      status: 'done'
+    };
   }
   return fileStorages;
 };
@@ -86,15 +58,14 @@ export const getFileStoragesObject = (object) => {
   let fileStorages = {};
   const {link, id, name} = object;
   fileStorages = {
-url: link, uid: id, name: name, status: 'done'
-};
+    url: link,
+    uid: id,
+    name: name,
+    status: 'done'
+  };
   return fileStorages;
 };
 
-/**
- *
- * @param {*} object
- */
 export const cleanObject = (object) => {
   for (const propName in object) {
     if (object[propName] === null || object[propName] === undefined) {
@@ -149,11 +120,6 @@ export const getUploadProps = ({fileList: fileListUpload, dispatch, nameFields, 
   };
 };
 
-/**
- *
- * @param {*} param0
- */
-
 export const downloadFile = ({file, name}) => {
   const link = document.createElement('a');
   if (link.download !== undefined) {
@@ -176,15 +142,6 @@ export const getFileStorageObjectByTag = (fileStorages, objectTag) => {
   return object;
 };
 
-/**
- * Get the name of the connected host
- *
- * @param {object} req Request of server
- * @param {bool} trueHost Get the actual route
- *
- * @return {string} Returns name host
- */
-
 export const getHostname = (req, trueHost = false) => {
   let hostname = 'localhost';
   if (req) {
@@ -205,38 +162,6 @@ export const getCookieName = (hostname: string, cookieName: string) => {
   return cookieNameFinished.slice(0, 10);
 };
 
-/**
- * Function get Found Seo for
- *
- * @param {object} dataUser Reducer dataUser
- * @param {object} router Router with pathname, etc
- *
- * @return {string} Return found seo
- */
-// export const getSeo = (dataUser, router) => {
-//   let seo = "";
-//   const nameMenu = role.g-etTypeMenu(dataUser.userTypeName);
-//   const requestMenu = MenuJSON[nameMenu];
-
-//   const getSEO = (menus = []) => {
-//     let nameMenu;
-//     for (const menu of menus) {
-//       if (menu.url === router.pathname.replace("/", "")) {
-//         nameMenu = `${menu.seo} - `;
-//         break;
-//       } else {
-//         nameMenu = getSEO(menu.submenu);
-//       }
-//     }
-//     return nameMenu;
-//   };
-
-//   requestMenu?.forEach((acumulador) => {
-//     seo = getSEO(acumulador?.menu) ?? seo;
-//   });
-//   return seo;
-// };
-
 export const getEnableAuthData = (auth) => {
   if (!auth) return {};
   const enableKey = ['userToken', 'dataUser', 'userType'];
@@ -248,14 +173,6 @@ export const getEnableAuthData = (auth) => {
     )
   }), {});
 };
-
-/**
- * Function to get keys enabled for users
- *
- * @param {object} user Auth Reducer
- *
- * @return {object} Return enable User data
- */
 
 export const getEnableUserData = (user) => {
   if (!user) return {};

@@ -1,9 +1,9 @@
-import React, {
- useEffect, useState, useRef, useMemo 
-} from 'react';
 import {
- ShortArrow 
+  ShortArrow
 } from '@components/icons';
+import React, {
+  useMemo, useRef, useState
+} from 'react';
 
 interface OptionIn {
   key: string | number;
@@ -19,14 +19,14 @@ interface SelectIn {
 const optionsObj = {};
 
 export const Select = (props: SelectIn) => {
-  const { initial, options, onSelected } = props;
+  const {initial, options, onSelected} = props;
 
   const [display, setDisplay] = useState(false);
   const [selected, setSelected] = useState(initial);
   const container = useRef(null);
 
   useMemo(() => {
-    options.forEach(({ key, label }) => optionsObj[key] = label);
+    options.forEach(({key, label}) => optionsObj[key] = label);
   }, [options]);
 
   const toggleOptions = () => {
@@ -70,23 +70,26 @@ export const Select = (props: SelectIn) => {
         <ul className="options">
           {options.map((item, i) =>
             item.key == selected
-              ? <li
+              ? (
+                <li
+                  key={i}
                   className="primary-selected-btn"
+                  onMouseDown={handleSelected.bind({}, item.key)}
+                >
+                  <span>
+                    {item.label}
+                  </span>
+                </li>)
+              : (
+                <li
                   key={i}
                   onMouseDown={handleSelected.bind({}, item.key)}
-              >
-                <span>
-                  {item.label}
-                </span>
-              </li>
-              : <li
-                  key={i}
-                  onMouseDown={handleSelected.bind({}, item.key)}
-              >
-                <span>
-                  {item.label}
-                </span>
-              </li>)
+                >
+                  <span>
+                    {item.label}
+                  </span>
+                </li>
+              ))
           }
         </ul>
       }
