@@ -30,16 +30,20 @@
         height: 60px;
         max-height: 60px;
         // overflow: hidden;
-        // width: 50px; 
-        // text-overflow: ellipsis; 
-        white-space: nowrap; 
+        // width: 50px;
+        // text-overflow: ellipsis;
+        white-space: nowrap;
       }
 
       a.nav-item {
         &:extend(.sub-title1);
         color: @primary-emphasis;
         text-decoration: none;
-          transition: color .3s ease-in-out;
+        transition: color .3s ease-in-out;
+
+        b {
+          color: @primary-emphasis;
+        }
 
         &:hover {
           color: rgba(@primary, .95);

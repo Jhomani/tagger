@@ -1,7 +1,3 @@
-import logo from '@components/images/logo.png';
-import {
-  switchLanguage
-} from '@redux/actions/app';
 import {
   useStatus
 } from '@utils/custom-hook';
@@ -13,9 +9,6 @@ import {
 import React, {
   memo, useEffect, useRef
 } from 'react';
-import {
-  useDispatch
-} from 'react-redux';
 
 interface ItemIn {
   path?: string;
@@ -33,7 +26,6 @@ const initialState = {
 
 const Navbar = ({items}: NavbarIn) => {
   const [state, setState] = useStatus(initialState);
-  const dispatch = useDispatch();
   const navBar = useRef(null);
   const router = useRouter();
 
@@ -73,16 +65,10 @@ const Navbar = ({items}: NavbarIn) => {
   };
 
   const handleScroll = (scrolled: number) => {
-    console.log(scrolled);
     if (scrolled < 31)
       setState({bgNavbar: 'clean-navbar'});
     else
       setState({bgNavbar: ''});
-  };
-
-  const switcherLang = (value) => {
-    console.log(value);
-    dispatch(switchLanguage(value));
   };
 
   return <>
@@ -92,7 +78,7 @@ const Navbar = ({items}: NavbarIn) => {
           <li>
             <Link href="/">
               <a href="/" className="nav-item">
-                <img src={logo} alt='logo' height='100%' />
+                <b>Tagger</b>&nbsp;Exercise
               </a>
             </Link>
           </li>
@@ -116,8 +102,4 @@ const Navbar = ({items}: NavbarIn) => {
   </>;
 };
 
-export default memo(Navbar, (prev, next) => {
-  console.log(prev, next);
-
-  return true;
-});
+export default memo(Navbar);

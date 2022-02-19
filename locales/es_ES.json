@@ -1,4 +1,6 @@
 {
+  "english": "Ingles",
+  "spanish": "Español",
   "navPrice": "Precios",
   "navServices": "Servicios",
   "changeLocale": "Cambiar Ind",
@@ -6,7 +8,7 @@
   "navPortfolio": "Portafolio",
   "handleTags": "Administrar Etiquetas",
   "navAboutus": "Acerca de",
-  "landingTitle": "Bienvenido a la empresa de dearrollo de otro nivel",
+  "landingTitle": "Bienvenido al programa de etiquetado de imagenes",
   "landingCaption": "Realizamos",
   "landingDinamicServOne": "Aplicaciones Moviles",
   "landingDinamicServTwo": "Aplicaciones de Escritorio",

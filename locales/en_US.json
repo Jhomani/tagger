@@ -1,4 +1,6 @@
 {
+  "english": "English",
+  "spanish": "Spanish",
   "navPrice": "Prices",
   "navServices": "Services",
   "changeLocale": "Change Lang",
@@ -6,7 +8,7 @@
   "navPortfolio": "Porfolio",
   "navAboutus": "About us",
   "handleTags": "Handle Tags",
-  "landingTitle": "Welcome to next level Company",
+  "landingTitle": "Welcome to image tagger program",
   "landingCaption": "We Make",
   "landingDinamicServOne": "Mobile Applications",
   "landingDinamicServTwo": "Desktop Applications",

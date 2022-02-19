@@ -1,8 +1,5 @@
 import {
-  Whatsapp
-} from '@components/icons';
-import {
-  Button,
+  Language,
   Select
 } from '@components/index';
 import React, {
@@ -41,7 +38,9 @@ const IndexPage = () => {
 
   return <>
     <div className="landing">
-      {/* <h2 className="landing-title"><Language langKey="landingTitle" /></h2> */}
+      <h2 className="landing-title g-my-4">
+        <Language langKey="landingTitle" />
+      </h2>
 
       <Select
         options={options}
@@ -49,14 +48,6 @@ const IndexPage = () => {
         onSelected={handleSelected}
       />
 
-      <br />
-
-      <Button
-        content="Whatsapp"
-        type="secondary"
-        icon={<Whatsapp size="18" />}
-        to="/services"
-      />
     </div>
   </>;
 };

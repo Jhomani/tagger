@@ -12,6 +12,10 @@
     "label": "Graffiti"
   },
   {
+    "id": 4,
+    "label": "Developer"
+  },
+  {
     "id": 5,
     "label": "Realism"
   }

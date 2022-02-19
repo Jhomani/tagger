@@ -24,12 +24,7 @@
     "react/prop-types": 0,
     "semi": 2,
     "comma-dangle": 2,
-    "object-property-newline": [
-      2,
-      {
-        "allowAllPropertiesOnSameLine": false
-      }
-    ],
+    "object-property-newline": 2,
     "object-curly-newline": [
       2,
       {
