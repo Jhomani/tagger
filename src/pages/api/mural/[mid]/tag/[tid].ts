@@ -1,9 +1,8 @@
-import images from 'database/banners.json';
-import tags from 'database/tags.json';
 import fs from 'fs';
-import {
-  NextApiRequest, NextApiResponse
-} from 'next';
+import {NextApiRequest, NextApiResponse} from 'next';
+import path from 'path';
+import images from 'src/database/banners.json';
+import tags from 'src/database/tags.json';
 
 export default async function getAllTags(req: NextApiRequest, res: NextApiResponse) {
   const {mid, tid} = req.query;
@@ -48,7 +47,9 @@ export default async function getAllTags(req: NextApiRequest, res: NextApiRespon
   if (!resp)
     return res.status(404).json({messsage: 'sorry we only accept PATCH OR DELETE requests'});
   else {
-    fs.writeFileSync('database/banners.json', JSON.stringify(images, null, 2));
+    const currentPaht = path.join(process.cwd(), 'src/database/banners.json');
+
+    fs.writeFileSync(currentPaht, JSON.stringify(images, null, 2));
 
     return res.status(200).json(resp);
   }

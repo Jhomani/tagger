@@ -3,12 +3,16 @@
     "id": 6788,
     "tags": [
       {
-        "id": 3,
-        "label": "Graffiti"
+        "id": 2,
+        "label": "Typography"
       },
       {
-        "id": 4,
-        "label": "Developer"
+        "id": 5,
+        "label": "Realism"
+      },
+      {
+        "id": 1,
+        "label": "Abstract"
       }
     ],
     "createdAt": 1568044681586,
